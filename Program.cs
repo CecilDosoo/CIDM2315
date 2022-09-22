@@ -1,24 +1,47 @@
-﻿namespace week4homework;
+﻿namespace week4homework2;
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Enter two integers: ");
-        int a = Convert.ToInt16(Console.ReadLine());
-        int b = Convert.ToInt16(Console.ReadLine());
+        Console.WriteLine("Enter an integer: ");
+        int n = Convert.ToInt16(Console.ReadLine());
 
-        Console.WriteLine($"a = {a}; b = {b}");
+        Console.WriteLine("Enter a shape: ");
+        string shape = Console.ReadLine();
 
-        if (a > b)
+        Console.WriteLine($"N is: {n}; shape is {shape}");
+
+
+        if(shape == "left")
         {
-            Console.WriteLine($"The Largest number is: {a}");
+            for(int row = 0; row<n; row++)
+            {
+                for(int col = 0; col<n; col++)
+                {
+                if(row>=col)
+                Console.Write('*');
+                }
+                Console.WriteLine("");
+            }
         }
-        else
+        if(shape == "right")
         {
-            Console.WriteLine($"The Largest number is: {b}");
+    
+        int a, b, c;
+        for (a = 1; a <= n; a++)
+        {
+            for (b = 1; b <= n - a; b++)
+            {
+                Console.Write(" ");
+            }
+            for (c = 1; c <= a; c++)
+            {
+                Console.Write("*");
+            }
+            Console.WriteLine("");
+        } 
         }
-
     }
-
-
 }
+
+

@@ -35,10 +35,10 @@ class Program
         Dictionary <string, int> orders = new Dictionary<string, int>();
         Dictionary <string, double> food_total = new Dictionary<string, double>();
 
-        bool game = true;
-        while(game){
-            if((username == name)&&(password == pass)){
+        if((username == name)&&(password == pass)){
             Console.WriteLine("Login Successfully.");
+            bool game = true;
+            while(game){
             Console.WriteLine($"** Hello Cashier: {username} **");
             Menu();
             int option = Convert.ToInt16(Console.ReadLine());
@@ -76,7 +76,6 @@ class Program
                 string side_name = sides.ElementAt(side_option).Key;
                 double side_price = sides.ElementAt(side_option).Value;
 
-                // order summary with total
                 double total = (entree_price + drink_price + side_price);
                 food_total.Add(orderName, total);
                 Console.WriteLine("----- Order Summary -----");
@@ -105,7 +104,6 @@ class Program
                 Console.WriteLine("----- Input order ID to remove a finished order: ------");
                 int order_num = Convert.ToInt32(Console.ReadLine());
 
-                // Code to remove order number chosen
                 string chosen_order = orders.ElementAt(order_num).Key;
                 orders.Remove(chosen_order);
 
@@ -122,18 +120,15 @@ class Program
                 Console.WriteLine("-> Log out system");
                 game = false;
             }
-            }   
-        else if((username == name)&&(password != pass)){
+            }  
+        }
+                else if((username == name)&&(password != pass)){
             Console.WriteLine("Wrong Password.");
-            game = false;
         }
         else{
             Console.WriteLine("Wrong Username.");
-            game = false;
         }
-        }     
     }
-
     static void Menu(){
         Console.WriteLine("**********************");
         Console.WriteLine("Please select: ");
@@ -143,7 +138,6 @@ class Program
         Console.WriteLine("4. Log out System");
         Console.WriteLine("**********************");
     }
-
     static void newOrder(){
         Console.WriteLine("--> Customer Name: ");
         string name = Console.ReadLine();
